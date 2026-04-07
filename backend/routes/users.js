@@ -2,8 +2,18 @@ import express from 'express';
 import User from '../models/User.js';
 import Activity from '../models/Activity.js';
 import authMiddleware from '../middleware/auth.js';
-
+import Game from '../models/Game.js';
 const router = express.Router();
+
+// Get all enabled games (public)
+router.get('/games', authMiddleware, async (req, res) => {
+  try {
+    const games = await Game.find({ isEnabled: true });
+    res.json(games);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
 
 // Get public stats for game dashboard
 router.get('/public-stats', authMiddleware, async (req, res) => {
