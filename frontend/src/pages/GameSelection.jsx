@@ -57,7 +57,7 @@ const GameSelection = () => {
   const fetchData = async () => {
     try {
       const [gamesRes, statsRes] = await Promise.all([
-        api.get('/admin/games'),
+        api.get('/users/games'),
         api.get('/users/public-stats')
       ]);
       // Only show enabled games
