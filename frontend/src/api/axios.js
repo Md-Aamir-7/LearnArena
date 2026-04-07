@@ -43,7 +43,7 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || 'https://eduarena.onrender.com',
+  baseURL: import.meta.env.VITE_API_URL || 'https://eduarena.onrender.com/api',
 });
 
 // Add token
